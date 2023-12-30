@@ -5,11 +5,11 @@ c. Add a function according to the individual assignment.
 d. The page should be selected in the Flyout navigation menu in Shell.
 
 <h2>Lab2<h2/>
-In the project from <h2>Laboratory Work #1, add a page containing a <h2>Label, ProgressBar, and two buttons.
+In the project from Laboratory Work #1, add a page containing a Label, ProgressBar, and two buttons.
 On clicking the Start button, asynchronously (await, async Task), calculate the integral of the function y=sin(x) on the interval from 0 to 1 (use the rectangle method). Use a step of 0.00000001 for iteration. To increase the computation time, introduce a delay in the form of a loop of 100,000 formal calculations on each iteration (e.g., multiplying two numbers). Adjust the values so that the calculation takes about a second.
 The ProgressBar should display the progress of the calculation. Also, the progress should be displayed as a percentage (see the figure).
 The Cancel button is intended to cancel the calculation (use CancellationToken).
-The <h2>Label at the top of the screen (in the figure, "Welcome to .NET MAUI!") should change to the following messages:
+The Label at the top of the screen (in the figure, "Welcome to .NET MAUI!") should change to the following messages:
 - "Calculating" when the integration calculation is in progress (by clicking the Start button);
 - the result of the integration calculation upon completion;
 - "Task canceled" if the Cancel button was pressed during the calculation.
