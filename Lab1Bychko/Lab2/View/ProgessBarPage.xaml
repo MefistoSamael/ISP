@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Bychko.Lab2.View.ProgessBarPage"
+             Title="ProgessBarPage">
+    
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Label
+            Grid.Row="0"
+            x:Name="OutputLabel"
+            Text="{Binding Path=LabelText}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Grid
+            Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ProgressBar
+                Grid.Column="0"
+                x:Name="MyProgressBar"
+                VerticalOptions="Center"
+                HorizontalOptions="Fill"
+                WidthRequest ="200"
+                Progress="{Binding Path=Progress}"
+                ProgressColor="Orange" />
+
+            <Label
+                Grid.Row="0"
+                x:Name="ProgressOutputLabel "
+                Text="{Binding Path=PercentProgress}"
+                VerticalOptions="Center" 
+                HorizontalOptions="End" />
+
+        </Grid>
+
+
+        <Grid
+            Grid.Row="2">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                x:Name="StartButton"
+                Text="Start"
+                VerticalOptions="End"
+                HorizontalOptions="Fill"
+                IsEnabled="{Binding Path=IsFree}"
+                Clicked="OnButtonStartClicked" />
+
+            <Button
+                Grid.Column="1"
+                x:Name="CancelButton"
+                Text="Cancel"
+                VerticalOptions="End"
+                HorizontalOptions="Fill"
+                Clicked="OnButtonCancelClicked" />
+
+        </Grid>
+
+        
+    </Grid>
+        
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Lab1Bychko.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:core="clr-namespace:Lab1Bychko"
+    xmlns:L1="clr-namespace:Lab1Bychko.Lab1.View"
+    xmlns:L2="clr-namespace:Lab1Bychko.Lab2.View"
+    xmlns:L3="clr-namespace:Lab1Bychko.Lab3.View"
+    xmlns:L4="clr-namespace:Lab1Bychko.Lab4.View">
+
+    <FlyoutItem Title="AboutPage"
+                Icon="icon_about.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate core:WelocomePage}" />
+        </Tab>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Calculator"
+                Icon="windows_calculator_icon.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate L1:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="ProgressBar"
+                Icon="progress_bar_icon.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate L2:ProgessBarPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="SushiSets">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate L3:SushiSetView}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="CurrencyConverter">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate L4:ConverterView}" />
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Bychko.WelocomePage"
+             Title="WelocomePage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to my application"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large" />
+
+        <Label 
+            Text="Author: Bychko Vassili"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+
+        <Label 
+            Text="Group 153501 Lab1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large" />
+
+        <Label 
+            Text="Lab1"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="Large" />
+
+        <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+        
+    </VerticalStackLayout>
+</ContentPage>

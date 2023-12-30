@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Bychko.Lab1.View.MainPage"
+             xmlns:vm="clr-namespace:Lab1Bychko"
+             Title="MainPage">
+
+    <Grid BackgroundColor="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <!--Expression Output-->
+        <Label 
+            Grid.Row="0"
+            Text="{Binding Path=Result}"
+            TextColor="DarkGrey"
+            VerticalOptions="Center" 
+            HorizontalOptions="End"
+            FontSize="Medium"/>
+
+        <!--Temp Text Output-->
+        <Label 
+            Grid.Row="1"
+            x:Name="TempText"
+            Text="{Binding Path=CurrentNumber}"
+            VerticalOptions="Center" 
+            HorizontalOptions="End"
+            FontSize="Large"/>
+
+        <!--Buttons Grid-->
+        <Grid
+            Grid.Row="4">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+
+
+            <Button Grid.Row="0"
+                    Grid.Column="0"
+                    Text="%"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonPercentClicked" />
+
+            <Button Grid.Row="0"
+                    Grid.Column="1"
+                    Text="CE"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonClearClicked" />
+
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Text="C"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonClearEvrythingClicked" />
+
+            <Button Grid.Row="0"
+                    Grid.Column="3"
+                    Text="←"
+                    FontSize="Medium"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonDeleteClicked" />
+
+            <Button Grid.Row="1"
+                    Grid.Column="0"
+                    Text="1/x"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonDenomClicked"/>
+
+            <Button Grid.Row="1"
+                    Grid.Column="1"
+                    Text="x^2"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonSquareClicked" />
+
+            <Button Grid.Row="1"
+                    Grid.Column="2"
+                    Text="sqrt(x)"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonSqrtClicked" />
+
+            <Button x:Name="DivisionButton"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Text="/"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonBinaryOperationClicked" />
+
+            <Button Grid.Row="2"
+                    Grid.Column="0"
+                    Text="7"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="2"
+                    Grid.Column="1"
+                    Text="8"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="2"
+                    Grid.Column="2"
+                    Text="9"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button x:Name="MultiplyButton" Grid.Row="2"
+                    Grid.Column="3"
+                    Text="*"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonBinaryOperationClicked" />
+
+            <Button Grid.Row="3"
+                    Grid.Column="0"
+                    Text="4"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="3"
+                    Grid.Column="1"
+                    Text="5"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="3"
+                    Grid.Column="2"
+                    Text="6"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="3"
+                    Grid.Column="3"
+                    Text="-"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonBinaryOperationClicked" />
+
+            <Button Grid.Row="4"
+                    Grid.Column="0"
+                    Text="1"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="4"
+                    Grid.Column="1"
+                    Text="2"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="4"
+                    Grid.Column="2"
+                    Text="3"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="4"
+                    Grid.Column="3"
+                    Text="+"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="AntiqueWhite"
+                    
+                    BorderWidth="2"
+                    Clicked="OnButtonBinaryOperationClicked" />
+
+            <Button Grid.Row="5"
+                    Grid.Column="0"
+                    Text="+/-"
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonNegateClicked" />
+
+            <Button Grid.Row="5"
+                    Grid.Column="1"
+                    Text="0"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonDigitClicked" />
+
+            <Button Grid.Row="5"
+                    Grid.Column="2"
+                    Text=","
+                    IsEnabled="{Binding Path=isEnabledUI}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Clicked="OnButtonCommaClicked" />
+
+            <Button Grid.Row="5"
+                    Grid.Column="3"
+                    Text="="
+                    TextColor="White"
+                    BackgroundColor="SlateGray"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Clicked="OnButtonAnswerClicked" />
+
+        </Grid>
+
+        <Button Grid.Row="3"
+                Text="10^x"
+                IsEnabled="{Binding Path=isEnabledUI}"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                TextColor="Black"
+                BackgroundColor="AntiqueWhite"
+                BorderWidth="2"
+                Clicked="OnButtonTaskClicked" />
+
+    </Grid>
+    
+    
+
+</ContentPage>

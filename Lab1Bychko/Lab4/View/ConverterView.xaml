@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Bychko.Lab4.View.ConverterView"
+             xmlns:core="clr-namespace:Lab1Bychko.Lab4.ViewModel"
+             xmlns:rate="clr-namespace:Lab1Bychko.Lab4.DomainModel.Entities"
+             x:DataType="core:CurrencyConverterVM"
+             Title="CurrencyConverter"
+             Loaded="ContentPage_Loaded">
+
+    <ContentPage.Resources>
+        <core:DecimalToStringConverter x:Key="DecimalToStr"/>
+        <rate:Rate x:Key="rateClass"/>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20" BackgroundColor="WhiteSmoke">
+        <DatePicker x:Name="CurrencyDatePicker" HorizontalOptions="Center"
+                    TextColor="MediumPurple" FontSize="20"
+                    DateSelected="CurDatePicker_DateSelected">
+
+        </DatePicker>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Padding="18">
+            <Label FontSize="18" TextColor="MediumPurple" Margin="0, 10, 8, 0">
+                BEL
+            </Label>
+            <Entry x:Name="BelCur" Keyboard="Numeric"  FontSize="18" TextColor="MediumPurple"
+                   MaxLength="9" Completed="BelCur_Completed" 
+                   Text="{Binding Path=BelValue, Converter={StaticResource DecimalToStr}}"/>
+
+            <Entry x:Name="ForeignCur" Keyboard="Numeric"  FontSize="18" TextColor="MediumPurple"
+                   MaxLength="9" Completed="ForeignCur_Completed" 
+                   Text="{Binding Path=ForeignValue, Converter={StaticResource DecimalToStr}}"/>
+
+            <Label FontSize="18"  TextColor="MediumPurple" Margin="8, 10, 0, 0"
+                   Text="{Binding Path=CurRate.Cur_Abbreviation}">
+                
+            </Label>
+
+        </HorizontalStackLayout>
+        <ListView  x:Name="ListRates"
+                  ItemsSource="{Binding Path=Rates}"
+                  HorizontalOptions="Center"
+                  MinimumWidthRequest="200" MaximumWidthRequest="350"
+                  SelectedItem="{Binding Path=CurRate}">
+        </ListView>
+    </StackLayout>
+</ContentPage>
